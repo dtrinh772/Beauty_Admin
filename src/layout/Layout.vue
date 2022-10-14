@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <Sidebar />
-    <div>
-      <Navbar />
-      <AppMain />
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <Sidebar />
+      <div class="col py-3">
+        <Navbar />
+        <AppMain />
+      </div>
     </div>
   </div>
 </template>
