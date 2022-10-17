@@ -1,5 +1,5 @@
 <template>
-  <section class="app-main">
+  <section>
     <transition name="fade-transform" mode="out-in">
       <keep-alive>
         <router-view />
@@ -7,3 +7,6 @@
     </transition>
   </section>
 </template>
+<style lang="scss">
+
+</style>

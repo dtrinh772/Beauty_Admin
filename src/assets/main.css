@@ -1,8 +1,8 @@
 @import "./base.css";
 
 #app {
-  max-width: 1280px;
   font-weight: normal;
+  background-color: #1e40af;
 }
 
 a,
@@ -18,3 +18,30 @@ a,
   }
 }
 
+.main-vdit{
+  overflow-x: hidden;
+    padding: 0.75rem 2rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(var(--color-slate-800) / var(--tw-text-opacity));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.side-nav{
+  background-color: #1e40af;
+  color: white;
+}
+
+.app-main{
+  border-radius: 30px;
+    padding: 0 22px;
+    min-height: 100vh;
+    min-width: 0px;
+    flex: 1 1 0%;
+    --tw-bg-opacity: 1;
+    /* background-color: rgb(var(--color-slate-100) / var(--tw-bg-opacity)); */
+    padding-bottom: 2.5rem;
+    background-color: white;
+}
