@@ -22,14 +22,5 @@ export default {
 }
 </script>
 <style>
-.main-vdit{
-  overflow-x: hidden;
-    padding: 0.75rem 2rem;
-    font-size: .875rem;
-    line-height: 1.25rem;
-    --tw-text-opacity: 1;
-    color: rgb(var(--color-slate-800) / var(--tw-text-opacity));
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+
 </style>

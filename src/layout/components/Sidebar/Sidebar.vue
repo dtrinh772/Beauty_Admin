@@ -89,8 +89,5 @@ export default {
 }
 </script>
 <style lang="scss">
-.side-nav{
-  background-color: #1e40af;
-  color: white;
-}
+
 </style>
