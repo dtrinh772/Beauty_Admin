@@ -1,25 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '../layout/Layout.vue'
-import Appointment from '../views/HomeView.vue'
-import Websetting from '../views/AboutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
       component: Layout,
+      redirect: '/appointment',
       children: [
         {
           path: 'appointment',
-          component: Appointment
-        },
-        {
-          path: 'setting',
-          component: Websetting
+          component: () => import('@/views/HomeView.vue'),
+          name: 'Appointment',
+          meta: {
+            title: 'Appointment',
+            icon: 'bi-house'
+          }
         }
       ]
+    },
+    {
+      path: '/login',
+      component: () => import('@/views/login/Login.vue')
     }
   ]
 })
