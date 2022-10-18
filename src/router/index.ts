@@ -7,15 +7,65 @@ const router = createRouter({
     {
       path: '/',
       component: Layout,
-      redirect: '/appointment',
+      redirect: '/dashboard',
+      children: [
+        {
+          path: 'dashboard',
+          component: () => import('@/views/Appointment/Appointment.vue'),
+          name: 'Dashboard',
+          meta: {
+            title: 'Dashboard',
+            icon: 'bi-house'
+          }
+        }
+      ]
+    },
+    {
+      path:'/appointment',
+      component: Layout,
       children: [
         {
           path: 'appointment',
-          component: () => import('@/views/HomeView.vue'),
-          name: 'Appointment',
+          component: () => import('@/views/Appointment/Appointment.vue'),
+          name: 'Appoiment',
           meta: {
-            title: 'Appointment',
-            icon: 'bi-house'
+            title: 'Appointment'
+          }
+        }
+      ]
+    },
+    {
+      path:'/setting',
+      component: Layout,
+      children: [
+        {
+          path:'setting',
+          component: () => import('@/views/Settings/AppSetting.vue'),
+          name: 'Setting',
+          meta: {
+            title: 'Setting'
+          }
+        }
+      ]
+    },
+    {
+      path:'/report',
+      component: Layout,
+      children: [
+        {
+          path:'/manage',
+          component: () => import('@/views/Report/Reports.vue'),
+          name: 'Manage Report',
+          meta: {
+            title: 'Manage Report'
+          }
+        },
+        {
+          path:'/history',
+          component: () => import('@/views/Report/ReportsHistory.vue'),
+          name: 'History Report',
+          meta: {
+            title: 'History Report'
           }
         }
       ]
@@ -23,7 +73,7 @@ const router = createRouter({
     {
       path: '/login',
       component: () => import('@/views/login/Login.vue')
-    }
+    },
   ]
 })
 

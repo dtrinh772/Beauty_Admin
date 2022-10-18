@@ -3,6 +3,7 @@
     <div class="row flex-nowrap">
       <Sidebar />
       <div class="col py-3 app-main">
+        <Breadcrumb />
         <AppMain />
       </div>
     </div>
@@ -11,14 +12,14 @@
 <script lang="ts">
 import Sidebar from './components/Sidebar/Sidebar.vue'
 import AppMain from './components/AppMain.vue'
-import Navbar from './components/Navbar/Navbar.vue'
+import Breadcrumb from './components/Breadcrumb/Breadcrumb.vue'
 
 export default {
   components: {
     Sidebar,
-    Navbar,
-    AppMain
-  }
+    AppMain,
+    Breadcrumb
+}
 }
 </script>
 <style></style>

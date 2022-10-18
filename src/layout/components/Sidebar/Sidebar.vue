@@ -71,21 +71,10 @@
   </div>
 </template>
 <script lang="ts">
-export default {
-  data() {
-    return {
-      formattedMenu: [
-        {
-          menu: 'Appointment',
-          menukey: 1
-        },
-        {
-          menu: 'Test',
-          menukey: 2
-        }
-      ]
-    }
-  }
-}
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  
+})
 </script>
 <style lang="scss"></style>
