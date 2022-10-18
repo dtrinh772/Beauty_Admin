@@ -7,7 +7,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
+        <form @submit.prevent="onSubmit">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in with</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -26,9 +26,7 @@
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0">Or</p>
           </div>
-
           <!-- Email input -->
-          <form @submit.prevent="onSubmit">
           <div class="form-floating mb-3">
             <input
               type="email"
@@ -52,8 +50,6 @@
             <label for="floatingPassword">Password</label>
           </div>
           <!-- <button class="btn btn-success btn-block my-2" type="submit">Login</button> -->
-        </form>
-
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
