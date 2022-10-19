@@ -5,13 +5,24 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/redirect',
+      component: Layout,
+      meta: { hidden: true },
+      children: [
+        {
+          path: '/redirect/:path*',
+          component: () => import('@/views/redirect/index.vue')
+        }
+      ]
+    },
+    {
       path: '/',
       component: Layout,
       redirect: '/dashboard',
       children: [
         {
           path: 'dashboard',
-          component: () => import('@/views/Appointment/Appointment.vue'),
+          component: () => import('@/views/Dashboard/Dashboard.vue'),
           name: 'Dashboard',
           meta: {
             title: 'Dashboard',
@@ -72,8 +83,24 @@ const router = createRouter({
     },
     {
       path: '/login',
-      component: () => import('@/views/login/Login.vue')
+      component: () => import('@/views/login/Login.vue'),
+      meta: { hidden: true}
     },
+  {
+    path: '/auth-redirect',
+    component: () => import('@/views/login/auth-redirect.vue'),
+    meta: { hidden: true }
+  },
+    {
+      path: '/404',
+      component: () => import('@/views/error-page/404.vue'),
+      meta: { hidden: true }
+    },
+    // {
+    //   path: '*',
+    //   redirect: '/404',
+    //   meta: { hidden: true }
+    // }
   ]
 })
 

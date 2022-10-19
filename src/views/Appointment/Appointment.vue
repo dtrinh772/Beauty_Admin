@@ -4,11 +4,13 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue'
+// import { Component, Vue } from 'vue-facing-decorator'
+// @Component({
+//     name: 'Appointment'
+// })
+// export default class extends Vue {
 
-export default defineComponent({
-
-})
+// }
 </script>
 <style lang="scss">
 </style>
