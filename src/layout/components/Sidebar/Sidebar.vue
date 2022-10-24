@@ -72,9 +72,15 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import routes from '../../../router/index'
 
 export default defineComponent({
-  
+  setup() {
+    console.log(routes)
+    return {
+      routes
+    }
+  }
 })
 </script>
 <style lang="scss"></style>
