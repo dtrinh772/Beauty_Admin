@@ -13,13 +13,17 @@
 import Sidebar from './components/Sidebar/Sidebar.vue'
 import AppMain from './components/AppMain.vue'
 import Breadcrumb from './components/Breadcrumb/Breadcrumb.vue'
+import sidebarWidth from './components/Sidebar/Sidebar.vue'
 
 export default {
   components: {
     Sidebar,
     AppMain,
     Breadcrumb
-}
+  },
+  setup() {
+    return { sidebarWidth }
+  }
 }
 </script>
 <style></style>
