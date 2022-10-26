@@ -6,8 +6,7 @@
       </span>
       <span v-else>Vue Sidebar</span>
     </h1>
-    <SidebarItem v-for="route in routes" :to="route.path" :name="route.name" />
-
+    <SidebarItem v-for="route in hasChild" :to="route.path" :item="route.name" />
     <span class="collapse-icon" :class="{ 'rotate-180': collapsed }" @click="toggleSidebar">
       <i class="bi bi-arrow-right" />
     </span>
@@ -15,17 +14,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent } from 'vue'
 import router from '../../../router/index'
 import SidebarItem from './SidebarItem.vue'
 import { collapsed, toggleSidebar, sidebarWidth } from '../../../store/modules/state'
+
 export default defineComponent({
   components: { SidebarItem },
   setup() {
-    const routes = router.getRoutes().map((r) => r)
-    console.log(routes)
-    onMounted(() => {})
-    return { collapsed, toggleSidebar, sidebarWidth, routes }
+    let routes = router.getRoutes().map((r) => r)
+    let hasChild = routes
+      .filter((r) => r.meta.hidden !== true)
+      .map((r) => {
+        return { name: r.name, path: r.path, icon: r.meta.icon }
+      })
+    console.log(hasChild)
+    return { collapsed, toggleSidebar, sidebarWidth, hasChild }
   }
 })
 </script>

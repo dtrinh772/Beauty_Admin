@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="to" class="link" :class="{ active: isActive }" :name="name">
+  <router-link v-if="routes" :to="to" class="link" :class="{ active: isActive }" :title="item">
     <i class="icon" :class="icon" />
     <transition name="fade">
       <span v-if="!collapsed">
@@ -10,23 +10,21 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { collapsed } from '../../../store/modules/state'
+
 export default defineComponent({
   props: {
     to: { type: String, required: true },
     icon: { type: String, required: false },
-    name: { type: String, required: true }
+    item: { required: true }
   },
   setup(props) {
+    const routes = ref(props.item)
     const route = useRoute()
-    console.log('route path')
-    console.log(route.path)
-    console.log('props item')
-    console.log(props.name)
     const isActive = computed(() => route.path === props.to)
-    return { isActive, collapsed }
+    return { isActive, collapsed, routes }
   }
 })
 </script>
