@@ -6,7 +6,7 @@
       </span>
       <span v-else>Vue Sidebar</span>
     </h1>
-    <SidebarItem v-for="route in hasChild" :to="route.path" :item="route.name" />
+    <SidebarItem v-for="route in hasChild" :to="route.path" :item="route.name" :icon="route.icon" />
     <span class="collapse-icon" :class="{ 'rotate-180': collapsed }" @click="toggleSidebar">
       <i class="bi bi-arrow-right" />
     </span>
@@ -56,9 +56,6 @@ export default defineComponent({
   transition: 0.3s ease;
   display: flex;
   flex-direction: column;
-}
-.sidebar h1 {
-  height: 2.5em;
 }
 .collapse-icon {
   position: absolute;

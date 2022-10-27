@@ -26,7 +26,7 @@ const router = createRouter({
           name: 'Dashboard',
           meta: {
             title: 'Dashboard',
-            icon: 'bi-house'
+            icon: 'bi bi-house'
           }
         }
       ]
@@ -40,7 +40,8 @@ const router = createRouter({
           component: () => import('@/views/Appointment/Appointment.vue'),
           name: 'Appoiment',
           meta: {
-            title: 'Appointment'
+            title: 'Appointment',
+            icon: 'bi bi-calendar3'
           }
         }
       ]
@@ -54,7 +55,8 @@ const router = createRouter({
           component: () => import('@/views/Settings/AppSetting.vue'),
           name: 'Setting',
           meta: {
-            title: 'Setting'
+            title: 'Setting',
+            icon: 'bi-tools'
           }
         }
       ]
@@ -62,13 +64,19 @@ const router = createRouter({
     {
       path: '/report',
       component: Layout,
+      redirect: '/report/manage',
+      meta: {
+        title: 'Report',
+        icon: 'bi-card-list'
+      },
       children: [
         {
           path: 'manage',
           component: () => import('@/views/Report/Reports.vue'),
           name: 'Manage Report',
           meta: {
-            title: 'Manage Report'
+            title: 'Manage Report',
+            icon: 'bi-clipboard-check'
           }
         },
         {
@@ -76,7 +84,8 @@ const router = createRouter({
           component: () => import('@/views/Report/ReportsHistory.vue'),
           name: 'History Report',
           meta: {
-            title: 'History Report'
+            title: 'History Report',
+            icon: 'bi-clipboard-data'
           }
         }
       ]

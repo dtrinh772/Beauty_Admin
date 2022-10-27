@@ -1,8 +1,10 @@
 <template>
   <div class="container-fluid main-vdit">
-    <div class="row flex-nowrap">
-      <Sidebar />
-      <div class="col py-3 app-main">
+    <div class="row flex">
+      <div>
+        <Sidebar />
+      </div>
+      <div class="py-3 app-main">
         <Breadcrumb />
         <AppMain />
       </div>

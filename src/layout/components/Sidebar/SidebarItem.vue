@@ -1,9 +1,9 @@
 <template>
-  <router-link v-if="routes" :to="to" class="link" :class="{ active: isActive }" :title="item">
+  <router-link v-if="routes" :to="to" class="link" :class="{ active: isActive }">
     <i class="icon" :class="icon" />
     <transition name="fade">
       <span v-if="!collapsed">
-        <slot />
+        {{ item }}
       </span>
     </transition>
   </router-link>
@@ -17,11 +17,12 @@ import { collapsed } from '../../../store/modules/state'
 export default defineComponent({
   props: {
     to: { type: String, required: true },
-    icon: { type: String, required: false },
+    icon: { required: false },
     item: { required: true }
   },
   setup(props) {
     const routes = ref(props.item)
+    console.log(props.icon)
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
     return { isActive, collapsed, routes }
@@ -44,11 +45,12 @@ export default defineComponent({
   cursor: pointer;
   position: relative;
   font-weight: 400;
+  font-size: initial;
   user-select: none;
   margin: 0.1em 0;
   padding: 0.4em;
-  border-radius: 0.25em;
-  height: 1.5em;
+  border-radius: 2em 0.25em 0.25em 2em;
+  height: 3em;
   color: white;
   text-decoration: none;
 }
@@ -62,6 +64,5 @@ export default defineComponent({
 .link .icon {
   flex-shrink: 0;
   width: 25px;
-  margin-right: 10px;
 }
 </style>
