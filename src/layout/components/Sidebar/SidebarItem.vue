@@ -31,14 +31,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.1s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 .link {
   display: flex;
   align-items: center;

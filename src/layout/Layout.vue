@@ -4,10 +4,12 @@
       <div>
         <Sidebar />
       </div>
-      <div class="py-3 app-main">
-        <Breadcrumb />
-        <AppMain />
-      </div>
+      <transition name="fade">
+        <div class="py-3 app-main" :style="{ 'margin-left': sidebarWidth }">
+          <Breadcrumb />
+          <AppMain />
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -15,7 +17,7 @@
 import Sidebar from './components/Sidebar/Sidebar.vue'
 import AppMain from './components/AppMain.vue'
 import Breadcrumb from './components/Breadcrumb/Breadcrumb.vue'
-import sidebarWidth from './components/Sidebar/Sidebar.vue'
+import { sidebarWidth } from '../store/modules/state'
 
 export default {
   components: {
@@ -28,4 +30,13 @@ export default {
   }
 }
 </script>
-<style></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
