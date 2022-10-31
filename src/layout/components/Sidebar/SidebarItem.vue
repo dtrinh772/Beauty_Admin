@@ -1,9 +1,12 @@
 <template>
-  <router-link v-if="routes" :to="to" class="link" :class="{ active: isActive }">
+  <!-- <div v-if="item.children.length > 0">
+    {{ item }}
+  </div> -->
+  <router-link v-if="name" :to="to" class="link" :class="{ active: isActive }">
     <i class="icon" :class="icon" />
     <transition name="fade">
       <span v-if="!collapsed">
-        {{ item }}
+        {{ name }}
       </span>
     </transition>
   </router-link>
@@ -18,14 +21,29 @@ export default defineComponent({
   props: {
     to: { type: String, required: true },
     icon: { required: false },
-    item: { required: true }
+    name: { required: true },
+    item: { type: Object, required: true }
   },
   setup(props) {
-    const routes = ref(props.item)
-    console.log(props.icon)
+    const name = ref(props.name)
+    console.log(props.item.children.length)
+    const hasChild = () => {
+      if (props.item.children) {
+        const showingChildren = props.item.children.filter((r: any) => {
+          if (r.meta && r.meta.hidden) {
+            return false
+          } else {
+            return true
+          }
+        })
+        return showingChildren.length
+      }
+      return 0
+    }
+
     const route = useRoute()
     const isActive = computed(() => route.path === props.to)
-    return { isActive, collapsed, routes }
+    return { isActive, collapsed, name, hasChild }
   }
 })
 </script>

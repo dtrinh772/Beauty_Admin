@@ -6,7 +6,13 @@
       </span>
       <span v-else>Vue Sidebar</span>
     </h1>
-    <SidebarItem v-for="route in hasChild" :to="route.path" :item="route.name" :icon="route.icon" />
+    <SidebarItem
+      v-for="route in routes"
+      :to="route.path"
+      :name="route.meta.title"
+      :icon="route.meta.icon"
+      :item="route"
+    />
     <span class="collapse-icon" :class="{ 'rotate-180': collapsed }" @click="toggleSidebar">
       <i class="bi bi-arrow-right" />
     </span>
@@ -23,13 +29,13 @@ export default defineComponent({
   components: { SidebarItem },
   setup() {
     let routes = router.getRoutes().map((r) => r)
-    let hasChild = routes
-      .filter((r) => r.meta.hidden !== true)
-      .map((r) => {
-        return { name: r.name, path: r.path, icon: r.meta.icon }
-      })
-    console.log(hasChild)
-    return { collapsed, toggleSidebar, sidebarWidth, hasChild }
+    console.log(routes)
+    // let hasChild = routes
+    //   .filter((r) => r.meta.hidden !== true)
+    //   .map((r) => {
+    //     return { name: r.name, path: r.path, icon: r.meta.icon }
+    //   })
+    return { collapsed, toggleSidebar, sidebarWidth, routes }
   }
 })
 </script>
