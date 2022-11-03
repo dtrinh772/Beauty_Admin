@@ -1,10 +1,10 @@
 <template>
-  <div class="sidebar" :style="{ width: sidebarWidth }">
+  <!-- <div class="sidebar" :style="{ width: sidebarWidth }">
     <h1>
       <span v-if="collapsed">
-        <div>V</div>
+        <img alt="VDIT Solutions" class="w-6" style="position: fixed" src="@/assets/images/logo2.png" />
       </span>
-      <span v-else>Vue Sidebar</span>
+      <span v-else>VDIT Solutions</span>
     </h1>
     <SidebarItem
       v-for="route in routes"
@@ -16,7 +16,14 @@
     <span class="collapse-icon" :class="{ 'rotate-180': collapsed }" @click="toggleSidebar">
       <i class="bi bi-arrow-right" />
     </span>
-  </div>
+  </div> -->
+  <nav class="side-nav">
+    <router-link to="/" tag="a" class="intro-x flex items-center pl-5 pt-4">
+      <img alt="VDIT" class="w-6" src="@/assets/images/logo2.png" />
+      <span class="hidden xl:block text-white text-lg ml-3"> Rubick </span>
+    </router-link>
+    <div class="side-nav__devider my-6"></div>
+  </nav>
 </template>
 
 <script lang="ts">

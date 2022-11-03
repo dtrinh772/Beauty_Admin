@@ -1,5 +1,7 @@
 @import "./base.css";
 
+@import "./css/_side-nav.css"
+
 #app {
   font-weight: normal;
   background-color: #1e40af;
