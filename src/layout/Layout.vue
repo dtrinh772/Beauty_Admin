@@ -1,15 +1,13 @@
 <template>
   <div class="container-fluid main-vdit">
-    <div class="row flex">
-      <div>
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
         <Sidebar />
       </div>
-      <transition name="fade">
-        <div class="py-3 app-main" :style="{ 'margin-left': sidebarWidth }">
-          <Breadcrumb />
-          <AppMain />
-        </div>
-      </transition>
+      <div class="col py-3 app-main">
+        <Breadcrumb />
+        <AppMain />
+      </div>
     </div>
   </div>
 </template>
@@ -17,16 +15,12 @@
 import Sidebar from './components/Sidebar/Sidebar.vue'
 import AppMain from './components/AppMain.vue'
 import Breadcrumb from './components/Breadcrumb/Breadcrumb.vue'
-import { sidebarWidth } from '../store/modules/state'
 
 export default {
   components: {
     Sidebar,
     AppMain,
     Breadcrumb
-  },
-  setup() {
-    return { sidebarWidth }
   }
 }
 </script>
