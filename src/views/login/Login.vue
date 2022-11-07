@@ -1,136 +1,80 @@
 <template>
-  <section class="vh-100">
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form @submit.prevent="onSubmit">
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-linkedin-in"></i>
-            </button>
-          </div>
-
-          <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0">Or</p>
-          </div>
-          <!-- Email input -->
-          <div class="form-floating mb-3">
-            <input
-              type="email"
-              v-model="form.username"
-              class="form-control"
-              id="floatingInput"
-              placeholder="name@example.com"
-              required
+  <div>
+    <DarkModeSwitcher />
+    <div class="container sm:px-10">
+      <div class="block xl:grid grid-cols-2 gap-4">
+        <!-- BEGIN: Login Info -->
+        <div class="hidden xl:flex flex-col min-h-screen">
+          <a href="" class="-intro-x flex items-center pt-5">
+            <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="@/assets/images/logo.svg" />
+            <span class="text-white text-lg ml-3"> Rubick </span>
+          </a>
+          <div class="my-auto">
+            <img
+              alt="Midone Tailwind HTML Admin Template"
+              class="-intro-x w-1/2 -mt-16"
+              src="@/assets/images/illustration.svg"
             />
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating">
-            <input
-              type="password"
-              v-model="form.password"
-              class="form-control"
-              id="floatingPassword"
-              placeholder="Password"
-              required
-            />
-            <label for="floatingPassword">Password</label>
-          </div>
-          <!-- <button class="btn btn-success btn-block my-2" type="submit">Login</button> -->
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
+            <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
+              A few more clicks to <br />
+              sign in to your account.
             </div>
-            <a href="#!" class="text-body">Forgot password?</a>
+            <div class="-intro-x mt-5 text-lg text-white text-opacity-70 dark:text-slate-400">
+              Manage all your e-commerce accounts in one place
+            </div>
           </div>
-
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                class="link-danger">Register</a></p>
+        </div>
+        <!-- END: Login Info -->
+        <!-- BEGIN: Login Form -->
+        <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
+          <div
+            class="my-auto mx-auto xl:ml-20 bg-white dark:bg-darkmode-600 xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto"
+          >
+            <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">Sign In</h2>
+            <div class="intro-x mt-2 text-slate-400 xl:hidden text-center">
+              A few more clicks to sign in to your account. Manage all your e-commerce accounts in one place
+            </div>
+            <div class="intro-x mt-8">
+              <input type="text" class="intro-x login__input form-control py-3 px-4 block" placeholder="Email" />
+              <input
+                type="password"
+                class="intro-x login__input form-control py-3 px-4 block mt-4"
+                placeholder="Password"
+              />
+            </div>
+            <div class="intro-x flex text-slate-600 dark:text-slate-500 text-xs sm:text-sm mt-4">
+              <div class="flex items-center mr-auto">
+                <input id="remember-me" type="checkbox" class="form-check-input border mr-2" />
+                <label class="cursor-pointer select-none" for="remember-me">Remember me</label>
+              </div>
+              <a href="">Forgot Password?</a>
+            </div>
+            <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
+              <button class="btn btn-primary py-3 px-4 w-full xl:w-32 xl:mr-3 align-top">Login</button>
+              <button class="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 align-top">
+                Register
+              </button>
+            </div>
+            <div class="intro-x mt-10 xl:mt-24 text-slate-600 dark:text-slate-500 text-center xl:text-left">
+              By signin up, you agree to our
+              <a class="text-primary dark:text-slate-200" href="">Terms and Conditions</a>
+              &
+              <a class="text-primary dark:text-slate-200" href="">Privacy Policy</a>
+            </div>
           </div>
-
-        </form>
+        </div>
+        <!-- END: Login Form -->
       </div>
     </div>
   </div>
-  <div
-    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-    <!-- Copyright -->
-    <div class="text-white mb-3 mb-md-0">
-      Copyright © 2020. All rights reserved.
-    </div>
-    <!-- Copyright -->
-
-    <!-- Right -->
-    <div>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="#!" class="text-white">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </div>
-</section>
 </template>
-<script lang="ts">
-import { defineComponent, reactive } from 'vue'
-// import userStore from '@/stores/user'
-export default defineComponent({
-  setup() {
-    const form = reactive({
-      username: '',
-      password: ''
-    })
-    const onSubmit = () => {
-      //   userStore.login(form.username, form.password)
-      form.username = ''
-      form.password = ''
-    }
-    return { form, onSubmit }
-  }
+
+<script setup>
+import { onMounted } from 'vue'
+import DarkModeSwitcher from '@/components/dark-mode-switcher/Main.vue'
+import dom from '@left4code/tw-starter/dist/js/dom'
+
+onMounted(() => {
+  dom('body').removeClass('main').removeClass('error-page').addClass('login')
 })
 </script>
-<style>
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
-}
-.h-custom {
-height: calc(100% - 73px);
-}
-@media (max-width: 450px) {
-.h-custom {
-height: 100%;
-}
-}
-</style>
